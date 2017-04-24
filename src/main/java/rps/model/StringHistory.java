@@ -13,6 +13,8 @@ import static java.util.Map.Entry;
 
 /**
  * {@link History} implementation based on {@code String}.
+ * It's easy to represent history as {@code String}.
+ * It may look like following sequence "prspprssprrsp".
  *
  * @author vkolodrevskiy
  */
