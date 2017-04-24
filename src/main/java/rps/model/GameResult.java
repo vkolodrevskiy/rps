@@ -6,9 +6,9 @@ package rps.model;
  * @author vkolodrevskiy
  */
 public class GameResult {
-    private Move userMove;
-    private Move robotMove;
-    private Status status;
+    private final Move userMove;
+    private final Move robotMove;
+    private final Status status;
 
     public GameResult(Move userMove, Move robotMove, Status status) {
         this.userMove = userMove;

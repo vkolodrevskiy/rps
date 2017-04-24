@@ -5,6 +5,7 @@ import rps.model.History;
 import rps.model.Move;
 import rps.model.StringHistory;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -15,13 +16,21 @@ import static org.junit.Assert.assertTrue;
  */
 public class StringHistoryTest {
     @Test
-    public void getMostCommonChar() throws Exception {
+    public void getMostCommonMove() {
         History history = new StringHistory("rrrppsrps");
-        assertEquals(Move.valueOfCode('r'), history.getMostCommonMove());
+        assertTrue(history.getMostCommonMove().isPresent());
+        assertEquals(Move.valueOfCode('r'), history.getMostCommonMove().get());
         history.add(Move.Paper);
         history.add(Move.Paper);
         history.add(Move.Paper);
-        assertEquals(Move.valueOfCode('p'), history.getMostCommonMove());
+        assertTrue(history.getMostCommonMove().isPresent());
+        assertEquals(Move.valueOfCode('p'), history.getMostCommonMove().get());
+    }
+
+    @Test
+    public void getMostCommonMoveEmptyHistory() {
+        History history = new StringHistory();
+        assertFalse(history.getMostCommonMove().isPresent());
     }
 
     @Test

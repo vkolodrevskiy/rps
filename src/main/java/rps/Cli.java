@@ -23,9 +23,10 @@ public class Cli {
         String input;
 
         do {
+            System.out.println("\nPlease enter your move.");
             System.out.print("[R, P, S]: ");
             input = scanner.nextLine();
-            if (input != null && ! input.trim().isEmpty() && "R|P|S|r|p|s".contains(input)) {
+            if (input != null && !input.trim().isEmpty() && "R|P|S|r|p|s".contains(input)) {
                 GameResult gameResult = game.playGameRound(Move.valueOfCode(input.charAt(0)));
                 System.out.println(String.format("Computer move was: %s, you: %s!",
                         gameResult.getRobotMove(), gameResult.getStatus()));
@@ -35,10 +36,9 @@ public class Cli {
 
     private void printHelp() {
         System.out.println("Usage:");
-        System.out.println("E, e\t-\t to exit;");;
+        System.out.println("E, e\t-\t to exit;");
         System.out.println("R, r\t-\t for rock;");
         System.out.println("P, p\t-\t for paper;");
         System.out.println("S, s\t-\t for scissors.");
-        System.out.println("\n\nPlease enter your move.");
     }
 }

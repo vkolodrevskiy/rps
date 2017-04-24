@@ -13,8 +13,8 @@ public enum Move {
     Scissors('s');
 
     private final char code;
-    private static Move[] values = Move.values();
-    private static Random random = new Random();
+    private static final Move[] values = Move.values();
+    private static final Random random = new Random();
 
     Move(char code) {
         this.code = code;

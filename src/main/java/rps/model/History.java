@@ -12,22 +12,23 @@ import java.util.Optional;
 public interface History {
 
     /**
-     * Add user move to history.
+     * Add player move to history.
      *
      * @param move
      */
     void add(Move move);
 
     /**
-     * Retrieves most common user move.
+     * Retrieves most common player move.
      *
      * @return
      */
-    Move getMostCommonMove();
+    Optional<Move> getMostCommonMove();
 
     /**
+     * Retrieves most common move that was done after Markov Chains.
      *
-     * @param patternLength
+     * @param patternLength Markov Chain pattern length.
      * @return
      */
     Optional<Move> getMarkovChainMostCommonMove(byte patternLength);

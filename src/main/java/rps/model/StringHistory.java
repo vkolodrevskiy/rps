@@ -17,7 +17,7 @@ import static java.util.Map.Entry;
  * @author vkolodrevskiy
  */
 public class StringHistory implements History {
-    private StringBuilder contents;
+    private final StringBuilder contents;
     private static final Comparator<Entry<?, Long>> RANK_BY_VALUE = Comparator
             .comparingLong(Entry::getValue);
 
@@ -29,27 +29,20 @@ public class StringHistory implements History {
         this.contents = new StringBuilder(history);
     }
 
-    private String getAsString() {
-        return contents.toString();
-    }
-
     @Override
     public void add(Move move) {
         contents.append(move.code());
     }
 
     @Override
-    public Move getMostCommonMove() {
-        if (contents.length() == 0) {
-            throw new IllegalStateException("History is empty.");
-        }
-        Entry<Character, Long> mostCommon = contents.chars().boxed().collect(
+    public Optional<Move> getMostCommonMove() {
+        Optional<Entry<Character, Long>> mostCommon = contents.chars().boxed().collect(
                 Collectors.groupingBy(
                         c -> ((char) c.intValue()),
                         Collectors.counting())).entrySet().stream()
-                .sorted(RANK_BY_VALUE.reversed()).findFirst().get();
+                .sorted(RANK_BY_VALUE.reversed()).findFirst();
 
-        return Move.valueOfCode(mostCommon.getKey());
+        return mostCommon.map(entry -> Move.valueOfCode(entry.getKey()));
     }
 
     @Override
