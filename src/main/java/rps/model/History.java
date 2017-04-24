@@ -1,5 +1,7 @@
 package rps.model;
 
+import java.util.Optional;
+
 /**
  * Represents history of moves(e.g by human player or by program).
  * It's easy to represent it as {@code String}.
@@ -22,4 +24,18 @@ public interface History {
      * @return
      */
     Move getMostCommonMove();
+
+    /**
+     *
+     * @param patternLength
+     * @return
+     */
+    Optional<Move> getMarkovChainMostCommonMove(byte patternLength);
+
+    /**
+     * Length of the history.
+     *
+     * @return
+     */
+    Integer length();
 }
