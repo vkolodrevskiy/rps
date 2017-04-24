@@ -1,6 +1,4 @@
-package rps;
-
-import rps.model.Move;
+package rps.model;
 
 /**
  * Represents history of moves(e.g by human player or by program).
@@ -11,6 +9,17 @@ import rps.model.Move;
  */
 public interface History {
 
+    /**
+     * Add user move to history.
+     *
+     * @param move
+     */
     void add(Move move);
+
+    /**
+     * Retrieves most common user move.
+     *
+     * @return
+     */
     Move getMostCommonMove();
 }

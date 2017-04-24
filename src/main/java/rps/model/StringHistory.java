@@ -1,6 +1,4 @@
-package rps;
-
-import rps.model.Move;
+package rps.model;
 
 import java.util.Comparator;
 import java.util.stream.Collectors;
@@ -34,7 +32,7 @@ public class StringHistory implements History {
 
     public Move getMostCommonMove() {
         if (contents.length() == 0) {
-            throw new RuntimeException("History is empty.");
+            throw new IllegalStateException("History is empty.");
         }
         Comparator<Entry<?, Long>> RANK_BY_VALUE = Comparator
                 .comparingLong(Entry::getValue);

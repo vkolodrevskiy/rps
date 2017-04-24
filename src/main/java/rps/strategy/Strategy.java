@@ -1,6 +1,6 @@
 package rps.strategy;
 
-import rps.History;
+import rps.model.History;
 import rps.model.Move;
 
 /**
