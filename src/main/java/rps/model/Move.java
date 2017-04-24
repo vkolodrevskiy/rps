@@ -1,7 +1,9 @@
-package rps;
+package rps.model;
+
+import java.util.Random;
 
 /**
- * TODO: add description.
+ * Represents move in the game.
  *
  * @author vkolodrevskiy
  */
@@ -11,6 +13,8 @@ public enum Move {
     Scissors('s');
 
     private final char code;
+    private static Move[] values = Move.values();
+    private static Random random = new Random();
 
     Move(char code) {
         this.code = code;
@@ -20,12 +24,17 @@ public enum Move {
         return code;
     }
 
+    public static Move randomMove() {
+        return values[random.nextInt(values.length)];
+    }
+
     /**
      * Determines whether move wins.
+     *
      * @param arg next move.
      * @return true if given item wins.
      */
-    boolean wins(Move arg) {
+    public boolean wins(Move arg) {
         switch (this) {
             case Rock:
                 return arg == Scissors;
@@ -49,8 +58,8 @@ public enum Move {
                 return Scissors;
             case Scissors:
                 return Rock;
+            default: throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
     }
 
     public static Move valueOfCode(char c) {
@@ -64,7 +73,7 @@ public enum Move {
             case 's':
             case 'S':
                 return Scissors;
+            default: throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
     }
 }

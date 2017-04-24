@@ -1,7 +1,7 @@
 package rps.strategy;
 
 import rps.History;
-import rps.Move;
+import rps.model.Move;
 
 /**
  * Next move selection strategy, based on player history.

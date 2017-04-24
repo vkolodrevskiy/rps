@@ -1,5 +1,7 @@
 package rps;
 
+import rps.model.Move;
+
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
@@ -30,7 +32,7 @@ public class StringHistory implements History {
         return contents.toString();
     }
 
-    public Character getMostCommonChar() {
+    public Move getMostCommonMove() {
         if (contents.length() == 0) {
             throw new RuntimeException("History is empty.");
         }
@@ -42,6 +44,6 @@ public class StringHistory implements History {
                         Collectors.counting())).entrySet().stream()
                 .sorted(RANK_BY_VALUE.reversed()).findFirst().get();
 
-        return mostCommon.getKey();
+        return Move.valueOfCode(mostCommon.getKey());
     }
 }

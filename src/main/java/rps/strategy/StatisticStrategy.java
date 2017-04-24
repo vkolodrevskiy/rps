@@ -1,15 +1,15 @@
 package rps.strategy;
 
 import rps.History;
-import rps.Move;
+import rps.model.Move;
 
 /**
- * TODO: add description.
+ * Idea if the strategy is that most used move by the player will be chosen.
  *
  * @author vkolodrevskiy
  */
 public class StatisticStrategy implements Strategy {
     public Move getMove(History history) {
-        return null;
+        return history.getMostCommonMove();
     }
 }

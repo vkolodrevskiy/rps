@@ -1,5 +1,7 @@
 package rps;
 
+import rps.model.Move;
+
 import java.util.EnumMap;
 import java.util.Map;
 

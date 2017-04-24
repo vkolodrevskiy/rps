@@ -1,6 +1,7 @@
 package rps;
 
 import org.junit.Test;
+import rps.model.Move;
 
 import static org.junit.Assert.*;
 
@@ -13,10 +14,10 @@ public class StringHistoryTest {
     @Test
     public void getMostCommonChar() throws Exception {
         History history = new StringHistory("rrrppsrps");
-        assertEquals(new Character('r'), history.getMostCommonChar());
+        assertEquals(new Character('r'), history.getMostCommonMove());
         history.add(Move.Paper);
         history.add(Move.Paper);
         history.add(Move.Paper);
-        assertEquals(new Character('p'), history.getMostCommonChar());
+        assertEquals(new Character('p'), history.getMostCommonMove());
     }
 }

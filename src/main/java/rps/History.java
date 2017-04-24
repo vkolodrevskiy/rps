@@ -1,5 +1,7 @@
 package rps;
 
+import rps.model.Move;
+
 /**
  * Represents history of moves(e.g by human player or by program).
  * It's easy to represent it as {@code String}.
@@ -10,5 +12,5 @@ package rps;
 public interface History {
 
     void add(Move move);
-    Character getMostCommonChar();
+    Move getMostCommonMove();
 }

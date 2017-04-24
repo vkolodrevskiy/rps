@@ -1,14 +1,14 @@
 package rps.strategy;
 
 import rps.History;
-import rps.Move;
+import rps.model.Move;
 
 /**
- * TODO: add description.
+ *
  *
  * @author vkolodrevskiy
  */
-public class RandomStrategy implements Strategy {
+public class MarkovChainStrategy implements Strategy {
     public Move getMove(History history) {
         return null;
     }
