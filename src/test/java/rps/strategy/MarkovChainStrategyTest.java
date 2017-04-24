@@ -5,6 +5,7 @@ import rps.model.Move;
 import rps.model.StringHistory;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * {@link MarkovChainStrategy} tests.
@@ -18,5 +19,11 @@ public class MarkovChainStrategyTest {
         StringHistory history = new StringHistory("rpsrprpsrprpsprpssrpsrprps");
         Strategy strategy = new MarkovChainStrategy();
         assertEquals(Move.Paper, strategy.getMove(history));
+    }
+
+    @Test
+    public void getMoveEmptyHistory() throws Exception {
+        Strategy strategy = new MarkovChainStrategy();
+        assertNotNull(strategy.getMove(new StringHistory()));
     }
 }
