@@ -47,11 +47,12 @@ public enum Move {
     }
 
     /**
+     * Get move to win given move.
      *
-     * @return move that wins userTake
+     * @return move that wins.
      */
-    public static Move findWinMoveAgainst(Move userTake) {
-        switch (userTake) {
+    public static Move findWinMoveAgainst(Move move) {
+        switch (move) {
             case Rock:
                 return Paper;
             case Paper:

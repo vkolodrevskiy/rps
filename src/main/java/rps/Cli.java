@@ -27,7 +27,7 @@ public class Cli {
             input = scanner.nextLine();
             if (input != null && ! input.trim().isEmpty() && "R|P|S|r|p|s".contains(input)) {
                 GameResult gameResult = game.playGameRound(Move.valueOfCode(input.charAt(0)));
-                System.out.println(String.format("Computer move was: %s, you: %s",
+                System.out.println(String.format("Computer move was: %s, you: %s!",
                         gameResult.getRobotMove(), gameResult.getStatus()));
             }
         } while (!("E".equalsIgnoreCase(input)));

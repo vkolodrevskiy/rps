@@ -31,7 +31,7 @@ public class Game {
 
     public GameResult playGameRound(Move userMove) {
         history.add(userMove);
-        return gameRule.play(makeRobotMove(), userMove);
+        return gameRule.play(userMove, makeRobotMove());
     }
 
     private Move makeRobotMove() {

@@ -11,6 +11,6 @@ import rps.model.Move;
 public class StatisticStrategy implements Strategy {
     @Override
     public Move getMove(History history) {
-        return history.getMostCommonMove();
+        return Move.findWinMoveAgainst(history.getMostCommonMove());
     }
 }

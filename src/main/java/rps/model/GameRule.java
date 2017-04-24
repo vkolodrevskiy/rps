@@ -9,17 +9,17 @@ public class GameRule {
     /**
      * Play game between robot and user.
      *
-     * @param robotMove robot move.
      * @param userMove user move.
+     * @param robotMove robot move.
      * @return {@code WIN} if robot wins user.
      */
-    public GameResult play(Move robotMove, Move userMove) {
-        if (robotMove == userMove) {
-            return new GameResult(robotMove, userMove, GameResult.Status.TIE);
-        } else if (robotMove.wins(userMove)) {
-            return new GameResult(robotMove, userMove, GameResult.Status.WIN);
+    public GameResult play(Move userMove, Move robotMove) {
+        if (userMove == robotMove) {
+            return new GameResult(userMove, robotMove, GameResult.Status.TIE);
+        } else if (userMove.wins(robotMove)) {
+            return new GameResult(userMove, robotMove, GameResult.Status.WIN);
         } else {
-            return new GameResult(robotMove, userMove, GameResult.Status.LOSS);
+            return new GameResult(userMove, robotMove, GameResult.Status.LOSS);
         }
     }
 }

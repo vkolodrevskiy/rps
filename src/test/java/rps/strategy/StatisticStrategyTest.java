@@ -7,15 +7,16 @@ import rps.model.StringHistory;
 import static org.junit.Assert.assertEquals;
 
 /**
- * {@link StochasticStrategy} test.
+ * {@link StatisticStrategy} test.
  *
  * @author vkolodrevskiy
  */
-public class StochasticStrategyTest {
+public class StatisticStrategyTest {
     @Test
     public void getMove() throws Exception {
         Strategy strategy = new StatisticStrategy();
         Move move = strategy.getMove(new StringHistory("rpsrpsrpsss"));
-        assertEquals(Move.Scissors, move);
+        // Scissors is most common - so Rock is expected for win.
+        assertEquals(Move.Rock, move);
     }
 }
