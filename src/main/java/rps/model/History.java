@@ -24,7 +24,7 @@ public interface History {
     Optional<Move> getMostCommonMove();
 
     /**
-     * Retrieves most common move that was done after Markov Chains.
+     * Retrieves most common move that was done after Markov Chain.
      *
      * @param patternLength Markov Chain pattern length.
      * @return

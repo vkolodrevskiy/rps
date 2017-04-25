@@ -27,6 +27,7 @@ public class StrategyRoulette {
         }
 
         // TODO: in future we can consider most winning strategies and select them based on that
+        //       e.g each strategy may contain winning weight.
         return strategies.get(random.nextInt(strategies.size()));
     }
 }

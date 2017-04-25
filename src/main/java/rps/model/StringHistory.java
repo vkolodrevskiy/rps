@@ -89,8 +89,8 @@ public class StringHistory implements History {
     /**
      * Get last number of moves.
      *
-     * @param lastMoves
-     * @return
+     * @param lastMoves number of last moves to retrieve.
+     * @return {@code String} representation of last moves.
      */
     private String getLastMoves(byte lastMoves) {
         return contents.substring(contents.length() - lastMoves);
